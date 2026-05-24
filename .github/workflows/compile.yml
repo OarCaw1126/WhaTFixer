@@ -16,17 +16,22 @@ jobs:
     - name: Install Dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential deploymate rsync libssl-dev
+        sudo apt-get install -y build-essential rsync libssl-dev clang microhttpd libxml2-dev
 
     - name: Setup Theos
       run: |
         git clone --recursive https://github.com $HOME/theos
         echo "THEOS=$HOME/theos" >> $GITHUB_ENV
 
-    - name: Setup iOS SDK
+    - name: Setup iOS Toolchain and SDK
       run: |
+        mkdir -p $HOME/theos/toolchain/linux/iphone
+        curl -LO https://github.com
+        tar -xf iphone-goolsw-14.2.tar.lzma -C $HOME/theos/toolchain/linux/iphone
+        rm iphone-goolsw-14.2.tar.lzma
+      
         git clone https://github.com $HOME/theos/sdks
-        
+
     - name: Compile Package
       run: |
         export THEOS=$HOME/theos
