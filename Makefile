@@ -2,7 +2,7 @@ TARGET := iphone:clang:latest:6.0
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = DuolingoX
+TWEAK_NAME = DriveX
 
 DuolingoX_FILES = Tweak.x
 DuolingoX_CFLAGS = -fobjc-arc
