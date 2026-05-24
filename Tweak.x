@@ -2,34 +2,34 @@
 
 
 void changeUserAgent(NSMutableURLRequest *request) {
-	[request setValue:@"DuolingoMobile/6.157.0 (iPad; iOS 12.5.7; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
+	[request setValue:@"Drive/4.2021 (iPad; iOS 12.5.8; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
 }
 
 %hook NSMutableURLRequest
 
 + (instancetype)requestWithURL:(NSURL *)URL {
-	// NSLog(@"DuolingoX: Inside requestWithURL");
+	// NSLog(@"DriveX: Inside requestWithURL");
     NSMutableURLRequest *request = %orig(URL);
     changeUserAgent(request);
     return request;
 }
 
 + (instancetype)requestWithURL:(NSURL *)URL cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeoutInterval {
-	// NSLog(@"DuolingoX: Inside requestWithURL with the additional args");
+	// NSLog(@"DriveX: Inside requestWithURL with the additional args");
     NSMutableURLRequest *request = %orig(URL, cachePolicy, timeoutInterval);
     changeUserAgent(request);
     return request;
 }
 
 - (instancetype)initWithURL:(NSURL *)URL {
-	// NSLog(@"DuolingoX: Inside initWithURL");
+	// NSLog(@"DriveX: Inside initWithURL");
 	NSMutableURLRequest *request = %orig(URL);
     changeUserAgent(request);
     return request;
 }
 
 - (instancetype)initWithURL:(NSURL *)URL cachePolicy:(NSURLRequestCachePolicy)cachePolicy timeoutInterval:(NSTimeInterval)timeoutInterval {
-	// NSLog(@"DuolingoX: Inside initWithURL with the additional args");
+	// NSLog(@"DriveX: Inside initWithURL with the additional args");
 	NSMutableURLRequest *request = %orig(URL, cachePolicy, timeoutInterval);
     changeUserAgent(request);
     return request;
@@ -37,7 +37,7 @@ void changeUserAgent(NSMutableURLRequest *request) {
 
 - (void)addValue:(NSString *)value forHTTPHeaderField:(NSString *)field{
 	if ([[field lowercaseString] isEqualToString:@"user-agent"]) {
-		// NSLog(@"DuolingoX: We got 'em boys!");
+		// NSLog(@"DriveX: We got 'em boys!");
 	} else {
 		%orig(value, field);
 	}
