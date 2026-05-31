@@ -1,9 +1,9 @@
-Package: com.google.drivex
-Name: DriveX
+Package: net.whatsapp.WhatsApp
+Name: WhaTFixer
 Version: 1.0.0
 Architecture: iphoneos-arm
-Description: Changes Drive's User-Agent enabling it to function on iOS 9!
-Maintainer: u/spacesaver2000-1
-Author: u/spacesaver2000-1
+Description: Changes Whatsapp's User-Agent enabling it to function on iOS 6-10 only for 32 bits!
+Maintainer: u/torxed
+Author: u/torxed-1
 Section: Tweaks
 Depends: mobilesubstrate (>= 0.9.5000)
